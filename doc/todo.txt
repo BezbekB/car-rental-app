@@ -1,0 +1,35 @@
+1. Index: wygląd, wyświetlanie opcji panela dla zalogowanych środa --- done
+2. System sprawdzania kto gdzie może wejść środa --- done
+3. Header, Footer dla odpowiednich ról środa --- done
+4. Zmiana hasła admina środa --- done
+5. Ustawienia konta klienta czwartek --- done
+6. Ustawienia konta pracownika czwartek --- done
+7. Edycja Klienta/Pracownika przez admina piątek --- done
+8. Dodawanie samochodów pracownik/admin piątek --- done
+9. Wyświetlanie samochodów / filtrowanie sobota --- done
+10. Szczegóły samochodu niedziela --- done
+11. Wypożyczenie poniediedziałek --- done
+12. Płatność wtorek --- done
+13. Oddanie środa --- done
+14. Obsługiwane wypożyczenia pracownika --- done
+15. Dodawanie dopłat przez pracownika
+16. Płatność za dopłatę przez klienta
+17. Historia wypożyczeń klienta
+Statystyki:
+1. Najczęstsze wypożyczenia - admin, pracownik
+2. Top 5 klientów - admin, pracownik
+3. Top 5 pracowników - admin
+4. Miesięczne przychody - admin
+5. Roczne przychodzy - admin
+6. Całkowity przychód - admin
+7. Wydane pieniądze - klient
+8. Dane dla oddziałów - admin
+9. Dane dla oddziału danego pracownika - pracownik
+
+
+Poprawki:
+- Zdjęcia: określenie głównego
+
+Dodatki:
+- punkty za wypożyczenia
+Do 8 kwietnia
