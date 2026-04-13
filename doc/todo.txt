@@ -12,7 +12,7 @@
 12. Płatność wtorek --- done
 13. Oddanie środa --- done
 14. Obsługiwane wypożyczenia pracownika --- done
-15. Dodawanie dopłat przez pracownika
+15. Dodawanie dopłat przez pracownika --- done
 16. Płatność za dopłatę przez klienta
 17. Historia wypożyczeń klienta
 Statystyki:
