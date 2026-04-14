@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     $mileage = $_POST['mileage'];
 
-    $stmtMileage = $pdo->prepare("SELECT Przebieg, SamochodID FROM Samochod JOIN Wypozyczenie ON Samochod.SamochodID = Wypozyczenie.SamochodID WHERE WypozyczenieID = ?");
+    $stmtMileage = $pdo->prepare("SELECT Samochod.Przebieg, Samochod.SamochodID FROM Samochod JOIN Wypozyczenie ON Samochod.SamochodID = Wypozyczenie.SamochodID WHERE WypozyczenieID = ?");
     $stmtMileage->execute([$id]);
     $mileageRow = $stmtMileage->fetch(PDO::FETCH_ASSOC);
 
@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         try{
             $pdo->beginTransaction();
 
-            $stmt = $pdo->prepare("UPDATE Wypozyczenie SET StatusWypozyczeniaID = ? WHERE WypozyczenieID = ?");
+            $stmt = $pdo->prepare("UPDATE Wypozyczenie SET StatusWypozyczeniaID = ?, RzeczywistaDataZwrotu = CURDATE() WHERE WypozyczenieID = ?");
             $stmt2 = $pdo->prepare("UPDATE Samochod SET Przebieg = ? WHERE SamochodID = ?");
             $stmt->execute([2, $id]);
             $stmt2->execute([$mileage, $mileageRow['SamochodID']]);

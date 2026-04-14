@@ -1,6 +1,7 @@
 <?php
 require_once('../../../config/auth.php');
 requireRole(['pracownik']);
+require_once('../../../config/db.php');
 
 $id = $_GET['id'];
 
@@ -15,27 +16,44 @@ $dates = $stmtDates->fetch(PDO::FETCH_ASSOC);
 $planned = new DateTime($dates['PlanowanaDataZwrotu']);
 $actual = new DateTime($dates['RzeczywistaDataZwrotu']);
 $diff = $planned->diff($actual);
-
 $delay = $actual > $planned;
+$daysLate = $delay ? $diff->days : 0;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-      $typeID = $_POST['surchargeType'];
+    $typeID = $_POST['surchargeType'];
+    $opis = $_POST['opis'];
+    $kwota = $_POST['kwota'];
 
-      $stmtInsert = $pdo->prepare("INSERT INTO Doplaty (WypozyczenieID, TypDoplatyID, DataDoplaty) VALUES (?, ?, NOW())");
-      $stmtInsert->execute([$id, $typeID]);
+    foreach($surchargeTypes as $t){
+        if($t['TypDoplatyID'] == $typeID){
+            $typeName = $t['TypDoplaty'];
+            break;
+        }
+    }
 
-      header("Location: ./supported_rentals.php");
-      exit;
+    if($typeName === "Opóźnienie"){
+        $kwota = 500 * $daysLate;
+        $opis = "Opóźnienie zwrotu o $daysLate dni";
+    }
+
+
+    $stmtInsert = $pdo->prepare("
+        INSERT INTO Doplata (WypozyczenieID, TypDoplatyID, Opis, DataNaliczenia, Kwota, StatusDoplatyID)
+        VALUES (?, ?, ?, CURDATE(), ?, ?)
+    ");
+    $stmtInsert->execute([$id, $typeID, $opis, $kwota, 2]);
+
+    header("Location: ./supported_rentals.php");
+    exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Carenteo | Naliczanie Dopłaty</title>
+      <title>Carenteo | Konto Pracownika</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -50,13 +68,43 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     <form action="" method="POST">
         <select name="surchargeType">
             <?php foreach($surchargeTypes as $type): ?>
-                  <?php if($type['TypDoplaty'] == "Opóźnienie" && !$delay) continue; ?>
-                  <option value="<?= $type['TypDoplatyID'] ?>"><?= $type['TypDoplaty'] ?></option>
+                <?php if($type['TypDoplaty'] == "Opóźnienie" && !$delay) continue; ?>
+                <option value="<?= $type['TypDoplatyID'] ?>"><?= $type['TypDoplaty'] ?></option>
             <?php endforeach; ?>
         </select>
-        <button type="submit">Dodaj Dopłatę</button>
-    </form>
+
+        <input type="text" name="kwota" placeholder="Kwota dopłaty">
+        <input type="text" name="opis" placeholder="Opis dopłaty">
+
+    <button type="submit">Dodaj Dopłatę</button>
+</form>
+
 </main>
 <?php require_once('../../components/footer.php'); ?>
+
+<script>
+    const surchargeSelect = document.querySelector('select[name="surchargeType"]');
+    const kwotaInput = document.querySelector('input[name="kwota"]');
+    const opisInput = document.querySelector('input[name="opis"]');
+
+    const daysLate = <?= $daysLate ?>;
+
+    surchargeSelect.addEventListener('change', function() {
+        const selectedText = surchargeSelect.options[surchargeSelect.selectedIndex].text;
+
+        if (selectedText === "Opóźnienie") {
+            const kwota = daysLate * 500;
+            kwotaInput.value = kwota;
+            kwotaInput.readOnly = true;
+            opisInput.readOnly = true;
+        } else {
+            kwotaInput.value = "";
+            kwotaInput.readOnly = false;
+            opisInput.readOnly = false;
+            opisInput.value = <?= $opis ?>;
+        }
+    });
+</script>
 </body>
 </html>
+

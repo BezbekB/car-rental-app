@@ -46,10 +46,11 @@ $rentals = $stmt->fetchAll(PDO::FETCH_ASSOC);
                               <p><strong>Status płatności:</strong> <?= $rental['StatusPlatnosci'] ?></p>
                         </div>
                         <div class="rental-actions">
-                              <?php if($rental['StatusWypozyczenia'] == "Oddane"): ?>
-                                    <a href="./add_surcharge.php?id=<?= $rental['WypozyczenieID'] ?>">Nalicz dopłaty</a>
+                              <?php if($rental['StatusWypozyczenia'] == "Oddany"): ?>
+                                    <a href="./add_surcharge.php?id=<?= $rental['WypozyczenieID'] ?>"  class="btn pay-btn">Nalicz dopłaty</a>
                               <?php endif ?>
                         </div>
+                        
                   </div>
             <?php endforeach; ?>
       </div>
