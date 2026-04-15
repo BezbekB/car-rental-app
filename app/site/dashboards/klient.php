@@ -24,6 +24,10 @@ requireRole(['klient']);
             <h2>Aktywne Wypożyczenia</h2>
             <p>Zarządzaj swoimi wypożyczeniami</p>
         </a>
+        <a href="./customer/customer_surcharges.php" class="admin-customer-card">
+            <h2>Dopłaty</h2>
+            <p>Przeglądaj i opłać swoje dopłaty</p>
+        </a>
 
     </div>
 </main>
