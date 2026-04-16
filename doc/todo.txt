@@ -13,8 +13,8 @@
 13. Oddanie środa --- done
 14. Obsługiwane wypożyczenia pracownika --- done
 15. Dodawanie dopłat przez pracownika --- done
-16. Płatność za dopłatę przez klienta --- done except css
-17. Historia wypożyczeń klienta
+16. Płatność za dopłatę przez klienta --- done
+17. Historia wypożyczeń klienta --- done
 Statystyki:
 1. Najczęstsze wypożyczenia - admin, pracownik
 2. Top 5 klientów - admin, pracownik

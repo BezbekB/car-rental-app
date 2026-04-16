@@ -28,6 +28,10 @@ requireRole(['klient']);
             <h2>Dopłaty</h2>
             <p>Przeglądaj i opłać swoje dopłaty</p>
         </a>
+        <a href="./customer/rental_history.php" class="admin-customer-card">
+            <h2>Historia Wypożyczeń</h2>
+            <p>Przeglądaj zakończone wypożyczenia</p>
+        </a>
 
     </div>
 </main>

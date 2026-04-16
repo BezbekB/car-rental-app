@@ -41,16 +41,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
       <h1>Opłacenie dopłaty</h1>
       <form action="" method="POST">
             <div class="payment-box">
-            <p><strong>Typ dopłaty:</strong> <?= $surcharge['TypDoplaty'] ?></p>
-            <p><strong>Opis:</strong> <?= $surcharge['Opis'] ?></p>
-            <p><strong>Kwota:</strong> <?= $surcharge['Kwota'] ?> zł</p>
-            <p><strong>Nr umowy:</strong> <?= $surcharge['NrUmowy'] ?></p>
-            <p><strong>Status:</strong> <?= $surcharge['StatusDoplatyID'] == 1 ? "Nieopłacona" : "Opłacona" ?></p>
+                  <p><strong>Typ dopłaty:</strong> <?= $surcharge['TypDoplaty'] ?></p>
+                  <p><strong>Opis:</strong> <?= $surcharge['Opis'] ?></p>
+                  <p><strong>Kwota:</strong> <?= $surcharge['Kwota'] ?> zł</p>
+                  <p><strong>Nr umowy:</strong> <?= $surcharge['NrUmowy'] ?></p>
+                  <p><strong>Status:</strong> <?= $surcharge['StatusDoplatyID'] == 1 ? "Nieopłacona" : "Opłacona" ?></p>
             <button type="submit">Opłać dopłatę</button>
       </div>
 
-      
-      
+
       </form>
 
 </main>
