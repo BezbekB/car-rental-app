@@ -28,7 +28,10 @@ requireRole(['pracownik']);
             <h2>Obsługiwane Wypożyczenia</h2>
             <p>Zarządzaj wypożyczeniami przypisanymi do twojego konta</p>
         </a>
-
+        <a href="./common/most_frequent_rentals.php" class="admin-customer-card">
+            <h2>Najczęstsze Wypożyczenia</h2>
+            <p>Zobacz 5 najczęściej wypożyczanych samochodów</p>
+        </a>
     </div>
 </main>
 <?php require_once('../components/footer.php'); ?>

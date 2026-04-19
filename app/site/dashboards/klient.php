@@ -32,6 +32,14 @@ requireRole(['klient']);
             <h2>Historia Wypożyczeń</h2>
             <p>Przeglądaj zakończone wypożyczenia</p>
         </a>
+        <a href="./common/most_frequent_rentals.php" class="admin-customer-card">
+            <h2>Najczęstsze Wypożyczenia</h2>
+            <p>Zobacz 5 najczęściej wypożyczanych samochodów</p>
+        </a>
+        <a href="./common/most_active_users.php" class="admin-customer-card">
+            <h2>Najaktywniejsi Klienci</h2>
+            <p>Zobacz 5 najaktywniejszych klientów</p>
+        </a>
 
     </div>
 </main>

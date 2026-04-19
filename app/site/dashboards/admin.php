@@ -32,6 +32,18 @@ requireRole(['admin']);
             <h2>Dodawanie Samochodów</h2>
             <p>Zarejestruj nowy samochód w systemie</p>
         </a>
+        <a href="./common/most_frequent_rentals.php" class="admin-customer-card">
+            <h2>Najczęstsze Wypożyczenia</h2>
+            <p>Zobacz 5 najczęściej wypożyczanych samochodów</p>
+        </a>
+        <a href="./common/most_active_users.php" class="admin-customer-card">
+            <h2>Najaktywniejsi Klienci</h2>
+            <p>Zobacz 5 najaktywniejszych klientów</p>
+        </a>
+        <a href="./admin/best_employees.php" class="admin-customer-card">
+            <h2>Najlepsi Pracownicy</h2>
+            <p>Zobacz 5 najlepszych pracowników</p>
+        </a>
     </div>
 </main>
 <?php require_once('../components/footer.php'); ?>

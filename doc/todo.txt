@@ -16,20 +16,12 @@
 16. Płatność za dopłatę przez klienta --- done
 17. Historia wypożyczeń klienta --- done
 Statystyki:
-1. Najczęstsze wypożyczenia - admin, pracownik
-2. Top 5 klientów - admin, pracownik
-3. Top 5 pracowników - admin
-4. Miesięczne przychody - admin
-5. Roczne przychodzy - admin
-6. Całkowity przychód - admin
-7. Wydane pieniądze - klient
-8. Dane dla oddziałów - admin
-9. Dane dla oddziału danego pracownika - pracownik
-
-
-Poprawki:
-- Zdjęcia: określenie głównego
-
-Dodatki:
-- punkty za wypożyczenia
-Do 8 kwietnia
+1. Najczęstsze wypożyczenia - admin, pracownik --- done
+2. Top 5 klientów - admin, pracownik --- done
+3. Top 5 pracowników - admin --- done
+4. Miesięczne przychody - admin poniedziałek
+5. Roczne przychodzy - admin poniedziałek
+6. Całkowity przychód - admin poniedziałek
+7. Wydane pieniądze - klient poniedziałek
+8. Dane dla oddziałów - admin wtorek 
+9. Dane dla oddziału danego pracownika - pracownik wtorek
