@@ -44,6 +44,18 @@ requireRole(['admin']);
             <h2>Najlepsi Pracownicy</h2>
             <p>Zobacz 5 najlepszych pracowników</p>
         </a>
+        <a href="./admin/monthly_income.php" class="admin-customer-card">
+            <h2>Miesięczne Przychody</h2>
+            <p>Zobacz miesięczne przychody firmy</p>
+        </a>
+        <a href="./admin/annual_income.php" class="admin-customer-card">
+            <h2>Roczne Przychody</h2>
+            <p>Zobacz roczne przychody firmy</p>
+        </a>
+        <a href="./admin/total_income.php" class="admin-customer-card">
+            <h2>Całkowity Przychód</h2>
+            <p>Zobacz całkowity przychód firmy</p>
+        </a>
     </div>
 </main>
 <?php require_once('../components/footer.php'); ?>

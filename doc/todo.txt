@@ -19,9 +19,9 @@ Statystyki:
 1. Najczęstsze wypożyczenia - admin, pracownik --- done
 2. Top 5 klientów - admin, pracownik --- done
 3. Top 5 pracowników - admin --- done
-4. Miesięczne przychody - admin poniedziałek
-5. Roczne przychodzy - admin poniedziałek
-6. Całkowity przychód - admin poniedziałek
-7. Wydane pieniądze - klient poniedziałek
+4. Miesięczne przychody - admin poniedziałek --- done
+5. Roczne przychodzy - admin poniedziałek --- done
+6. Całkowity przychód - admin poniedziałek --- done
+7. Wydane pieniądze - klient wtorek
 8. Dane dla oddziałów - admin wtorek 
 9. Dane dla oddziału danego pracownika - pracownik wtorek
