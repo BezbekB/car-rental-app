@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2026 at 07:23 PM
+-- Generation Time: Apr 21, 2026 at 05:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,14 @@ CREATE TABLE `doplata` (
   `Kwota` decimal(10,2) NOT NULL,
   `StatusDoplatyID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `doplata`
+--
+
+INSERT INTO `doplata` (`DoplataID`, `WypozyczenieID`, `TypDoplatyID`, `Opis`, `DataNaliczenia`, `Kwota`, `StatusDoplatyID`) VALUES
+(1, 1, 1, 'Opóźnienie zwrotu o 4 dni', '2026-04-14', 2000.00, 1),
+(2, 1, 3, 'Porysowany ekran wyświetlacza', '2026-04-21', 120.00, 1);
 
 -- --------------------------------------------------------
 
@@ -130,7 +138,7 @@ CREATE TABLE `platnosc` (
 --
 
 INSERT INTO `platnosc` (`PlatnoscID`, `WypozyczenieID`, `Kwota`, `DataPlatnosci`, `MetodaPlatnosciID`, `StatusPlatnosciID`) VALUES
-(1, 1, 870.00, NULL, NULL, 2);
+(1, 1, 870.00, '2026-04-14', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -183,7 +191,7 @@ CREATE TABLE `samochod` (
 
 INSERT INTO `samochod` (`SamochodID`, `Marka`, `Model`, `Kolor`, `TypPaliwaID`, `SkrzyniaID`, `TypNadwoziaID`, `Moc`, `RokProdukcji`, `CenaZaDzien`, `StatusSamochoduID`, `NrRejestracyjny`, `VIN`, `Przebieg`, `OddzialID`, `Opis`) VALUES
 (2, 'Cupra', 'Formentor 2.0 TSI', 'Czarny', 1, 2, 4, 190, '2023', 250.00, 1, 'SCI 3940J', 'VSSZZZK1ZPR892614', 23560, 2, 'Cupra Formentor 2023 to sportowy crossover klasy premium, który wyróżnia się agresywną stylistyką, świetnymi osiągami i wysokim komfortem jazdy. Pod maską znajduje się dynamiczny silnik 2.0 TSI o mocy 190 KM, współpracujący z szybką skrzynią DSG oraz napędem 4Drive, co zapewnia pewność prowadzenia w każdych warunkach. Auto przyspiesza pewnie, prowadzi się stabilnie i daje kierowcy dużą przyjemność z jazdy.\r\n\r\nWnętrze zostało zaprojektowane z myślą o ergonomii i nowoczesności — sportowe fotele, ambientowe oświetlenie, duży ekran multimedialny oraz wysokiej jakości materiały tworzą wyjątkową atmosferę. Formentor oferuje także praktyczny bagażnik o pojemności 450 litrów, dzięki czemu świetnie sprawdza się zarówno na co dzień, jak i podczas dłuższych wyjazdów.\r\n\r\nTo idealny wybór dla osób, które oczekują połączenia sportowego charakteru, komfortu i nowoczesnych technologii w jednym stylowym samochodzie.'),
-(3, 'BMW', 'X3 2.0', 'Szary', 2, 2, 4, 190, '2023', 290.00, 2, 'SK 5431X', '5UX63DP06P9961396', 41520, 3, 'BMW X3 xDrive20d 2023 to SUV, który łączy sportowy charakter z elegancją klasy premium. Pod maską pracuje nowoczesny silnik 2.0 TwinPower Turbo Diesel o mocy 190 KM i 400 Nm, który zapewnia natychmiastową reakcję na gaz i dynamiczne przyspieszenie w każdej sytuacji. Napęd xDrive dba o perfekcyjną trakcję, a 8‑stopniowy automat ZF zmienia biegi płynnie i błyskawicznie, utrzymując auto w idealnym zakresie mocy.\r\n\r\nWnętrze to połączenie minimalizmu i luksusu — wysokiej jakości materiały, sportowa pozycja za kierownicą i zaawansowane systemy wsparcia kierowcy tworzą atmosferę nowoczesnego komfortu. X3 oferuje przestronny bagażnik, świetne wyciszenie kabiny i stabilność, która daje pewność zarówno w mieście, jak i na autostradzie.\r\n\r\nTo samochód dla tych, którzy chcą czuć moc, precyzję i kontrolę — bez rezygnacji z wygody i elegancji. BMW X3 2023 to idealny wybór na dłuższe trasy, rodzinne wyjazdy i dynamiczną jazdę na co dzień.');
+(3, 'BMW', 'X3 2.0', 'Szary', 2, 2, 4, 190, '2023', 290.00, 1, 'SK 5431X', '5UX63DP06P9961396', 42000, 3, 'BMW X3 xDrive20d 2023 to SUV, który łączy sportowy charakter z elegancją klasy premium. Pod maską pracuje nowoczesny silnik 2.0 TwinPower Turbo Diesel o mocy 190 KM i 400 Nm, który zapewnia natychmiastową reakcję na gaz i dynamiczne przyspieszenie w każdej sytuacji. Napęd xDrive dba o perfekcyjną trakcję, a 8‑stopniowy automat ZF zmienia biegi płynnie i błyskawicznie, utrzymując auto w idealnym zakresie mocy.\r\n\r\nWnętrze to połączenie minimalizmu i luksusu — wysokiej jakości materiały, sportowa pozycja za kierownicą i zaawansowane systemy wsparcia kierowcy tworzą atmosferę nowoczesnego komfortu. X3 oferuje przestronny bagażnik, świetne wyciszenie kabiny i stabilność, która daje pewność zarówno w mieście, jak i na autostradzie.\r\n\r\nTo samochód dla tych, którzy chcą czuć moc, precyzję i kontrolę — bez rezygnacji z wygody i elegancji. BMW X3 2023 to idealny wybór na dłuższe trasy, rodzinne wyjazdy i dynamiczną jazdę na co dzień.');
 
 -- --------------------------------------------------------
 
@@ -393,7 +401,7 @@ CREATE TABLE `wypozyczenie` (
 --
 
 INSERT INTO `wypozyczenie` (`WypozyczenieID`, `SamochodID`, `KlientOsobaID`, `PracownikOsobaID`, `DataWypozyczenia`, `PlanowanaDataZwrotu`, `RzeczywistaDataZwrotu`, `StatusWypozyczeniaID`, `KosztCalkowity`, `NrUmowy`) VALUES
-(1, 3, 1, 2, '2026-04-07', '2026-04-10', NULL, 1, 870.00, 'AGR-1775543554743-7664');
+(1, 3, 1, 2, '2026-04-07', '2026-04-10', '2026-04-14', 2, 870.00, 'AGR-1775543554743-7664');
 
 -- --------------------------------------------------------
 
@@ -579,7 +587,7 @@ ALTER TABLE `zdjeciesamochodu`
 -- AUTO_INCREMENT for table `doplata`
 --
 ALTER TABLE `doplata`
-  MODIFY `DoplataID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `DoplataID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `metodaplatnosci`

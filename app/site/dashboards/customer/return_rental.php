@@ -24,9 +24,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             $pdo->beginTransaction();
 
             $stmt = $pdo->prepare("UPDATE Wypozyczenie SET StatusWypozyczeniaID = ?, RzeczywistaDataZwrotu = CURDATE() WHERE WypozyczenieID = ?");
-            $stmt2 = $pdo->prepare("UPDATE Samochod SET Przebieg = ? WHERE SamochodID = ?");
+            $stmt2 = $pdo->prepare("UPDATE Samochod SET Przebieg = ?, StatusSamochoduID = ? WHERE SamochodID = ?");
             $stmt->execute([2, $id]);
-            $stmt2->execute([$mileage, $mileageRow['SamochodID']]);
+            $stmt2->execute([$mileage, 1, $mileageRow['SamochodID']]);
 
             $pdo->commit();
 

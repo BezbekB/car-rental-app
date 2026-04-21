@@ -3,7 +3,7 @@ require_once('../../../config/auth.php');
 requireRole(['admin']);
 require_once('../../../config/db.php');
 
-$stmt = $pdo->prepare("SELECT YEAR(Data) AS Rok, MONTH(Data) AS Miesiac, SUM(Kwota) AS Przychod FROM (SELECT Platnosc.DataPlatnosci AS Data, Platnosc.Kwota AS Kwota FROM Platnosc WHERE Platnosc.StatusPlatnosciID = 2 UNION ALL SELECT Doplata.DataNaliczenia AS Data, Doplata.Kwota AS Kwota FROM Doplata WHERE Doplata.StatusDoplatyID = 2) AS combined GROUP BY YEAR(Data), MONTH(Data) ORDER BY Rok DESC, Miesiac DESC");
+$stmt = $pdo->prepare("SELECT YEAR(Data) AS Rok, MONTH(Data) AS Miesiac, SUM(Kwota) AS Przychod FROM (SELECT Platnosc.DataPlatnosci AS Data, Platnosc.Kwota AS Kwota FROM Platnosc WHERE Platnosc.StatusPlatnosciID = 1 UNION ALL SELECT Doplata.DataNaliczenia AS Data, Doplata.Kwota AS Kwota FROM Doplata WHERE Doplata.StatusDoplatyID = 1) AS combined GROUP BY YEAR(Data), MONTH(Data) ORDER BY Rok DESC, Miesiac DESC");
 $stmt->execute();
 $income = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

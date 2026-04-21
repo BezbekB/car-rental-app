@@ -1,18 +1,24 @@
 <?php
 require_once('../../../config/auth.php');
-requireRole(['admin']);
+requireRole(['klient']);
 require_once('../../../config/db.php');
 
-$stmt = $pdo->prepare("SELECT SUM(Kwota) AS Przychod FROM (SELECT Platnosc.Kwota FROM Platnosc WHERE Platnosc.StatusPlatnosciID = 1 UNION ALL SELECT Doplata.Kwota FROM Doplata WHERE Doplata.StatusDoplatyID = 1) AS combined");
-$stmt->execute();
+$stmtClient = $pdo->prepare("SELECT OsobaID FROM Osoba WHERE UzytkownikID = ?");
+$stmtClient->execute([$_SESSION['user_id']]);
+$client = $stmtClient->fetch(PDO::FETCH_ASSOC);
+$klientID = $client['OsobaID'];
+
+$stmt = $pdo->prepare("SELECT SUM(Kwota) AS Wydane FROM (SELECT Platnosc.Kwota FROM Platnosc JOIN Wypozyczenie ON Wypozyczenie.WypozyczenieID = Platnosc.WypozyczenieID WHERE Platnosc.StatusPlatnosciID = 1 AND Wypozyczenie.KlientOsobaID = ? UNION ALL SELECT Doplata.Kwota FROM Doplata JOIN Wypozyczenie ON Wypozyczenie.WypozyczenieID = Doplata.WypozyczenieID WHERE Doplata.StatusDoplatyID = 1 AND Wypozyczenie.KlientOsobaID = ?) AS combined");
+$stmt->execute([$klientID, $klientID]);
 $total = $stmt->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Carenteo | Całkowity Przychód</title>
+      <title>Carenteo | Wydane Pieniądze</title>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -22,7 +28,7 @@ $total = $stmt->fetch(PDO::FETCH_ASSOC);
 <body>
 <?php require_once('../../components/header.php'); ?>
 <main class="account-main">
-<h1>Całkowity przychód</h1>
+<h1>Twoje wydatki</h1>
 
 <table class="admin-users-table">
             <tr>
@@ -30,10 +36,11 @@ $total = $stmt->fetch(PDO::FETCH_ASSOC);
                   <th>Kwota</th>
             </tr>
             <tr>
-                  <td>Łączny przychód firmy</td>
-                  <td><?= $total['Przychod'] ?> zł</td>
+                  <td>Łącznie wydane na wypożyczenia i dopłaty</td>
+                  <td><?= number_format($total['Wydane'] ?? 0, 2, ',', ' ') ?> zł</td>
             </tr>
 </table>
+
 </main>
 <?php require_once('../../components/footer.php'); ?>
 </body>

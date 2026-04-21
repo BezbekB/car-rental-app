@@ -22,6 +22,9 @@ Statystyki:
 4. Miesięczne przychody - admin poniedziałek --- done
 5. Roczne przychodzy - admin poniedziałek --- done
 6. Całkowity przychód - admin poniedziałek --- done
-7. Wydane pieniądze - klient wtorek
-8. Dane dla oddziałów - admin wtorek 
-9. Dane dla oddziału danego pracownika - pracownik wtorek
+7. Wydane pieniądze - klient wtorek --- done
+8. Dane dla oddziałów - admin środa
+9. Dane dla oddziału danego pracownika - pracownik środa
+10. Ulepszenie strony(o nas, galeria itp.) - środa
+11. Chart.js dla statystyk - czwartek, piątek
+Faza Testów plików po kolei - środa, czwartek, piątek

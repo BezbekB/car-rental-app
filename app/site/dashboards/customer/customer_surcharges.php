@@ -8,7 +8,7 @@ $stmtUser->execute([$_SESSION['user_id']]);
 $userRow = $stmtUser->fetch(PDO::FETCH_ASSOC);
 $osobaID = $userRow['OsobaID'];
 
-$stmtSurcharges = $pdo->prepare("SELECT Doplata.DoplataID, Doplata.Kwota, TypDoplaty.TypDoplaty, Wypozyczenie.NrUmowy FROM Doplata JOIN TypDoplaty ON Doplata.TypDoplatyID = TypDoplaty.TypDoplatyID JOIN Wypozyczenie ON Wypozyczenie.WypozyczenieID = Doplata.WypozyczenieID WHERE Wypozyczenie.KlientOsobaID = ? ORDER BY Doplata.DoplataID DESC");
+$stmtSurcharges = $pdo->prepare("SELECT Doplata.DoplataID, Doplata.Kwota, TypDoplaty.TypDoplaty, Wypozyczenie.NrUmowy FROM Doplata JOIN TypDoplaty ON Doplata.TypDoplatyID = TypDoplaty.TypDoplatyID JOIN Wypozyczenie ON Wypozyczenie.WypozyczenieID = Doplata.WypozyczenieID WHERE Wypozyczenie.KlientOsobaID = ? AND Doplata.StatusDoplatyID = 2 ORDER BY Doplata.DoplataID DESC");
 $stmtSurcharges->execute([$osobaID]);
 $surcharges = $stmtSurcharges->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -33,7 +33,7 @@ $surcharges = $stmtSurcharges->fetchAll(PDO::FETCH_ASSOC);
       <?php if (empty($surcharges)): ?>
             <p>Nie masz żadnych dopłat.</p>
       <?php else: ?>
-            <table class="table">
+            <table class="admin-users-table">
                   <tr>
                         <th>Typ dopłaty</th>
                         <th>Kwota</th>
@@ -47,7 +47,7 @@ $surcharges = $stmtSurcharges->fetchAll(PDO::FETCH_ASSOC);
                               <td><?= $s['Kwota'] ?> zł</td>
                               <td><?= $s['NrUmowy'] ?></td>
                               <td>
-                                    <a class="btn" href="surcharge_payment.php?id=<?= $s['DoplataID'] ?>">Opłać dopłatę</a>
+                                    <a class="btn pay-btn" href="surcharge_payment.php?id=<?= $s['DoplataID'] ?>">Opłać dopłatę</a>
                               </td>
                         </tr>
                   <?php endforeach; ?>

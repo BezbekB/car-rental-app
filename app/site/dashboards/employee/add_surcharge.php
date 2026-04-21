@@ -32,11 +32,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         }
     }
 
-    if($typeName === "Opóźnienie"){
-        $kwota = 500 * $daysLate;
-        $opis = "Opóźnienie zwrotu o $daysLate dni";
-    }
-
 
     $stmtInsert = $pdo->prepare("
         INSERT INTO Doplata (WypozyczenieID, TypDoplatyID, Opis, DataNaliczenia, Kwota, StatusDoplatyID)
@@ -68,7 +63,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     <form action="" method="POST">
         <select name="surchargeType">
             <?php foreach($surchargeTypes as $type): ?>
-                <?php if($type['TypDoplaty'] == "Opóźnienie" && !$delay) continue; ?>
                 <option value="<?= $type['TypDoplatyID'] ?>"><?= $type['TypDoplaty'] ?></option>
             <?php endforeach; ?>
         </select>
@@ -81,30 +75,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
 </main>
 <?php require_once('../../components/footer.php'); ?>
-
-<script>
-    const surchargeSelect = document.querySelector('select[name="surchargeType"]');
-    const kwotaInput = document.querySelector('input[name="kwota"]');
-    const opisInput = document.querySelector('input[name="opis"]');
-
-    const daysLate = <?= $daysLate ?>;
-
-    surchargeSelect.addEventListener('change', function() {
-        const selectedText = surchargeSelect.options[surchargeSelect.selectedIndex].text;
-
-        if (selectedText === "Opóźnienie") {
-            const kwota = daysLate * 500;
-            kwotaInput.value = kwota;
-            kwotaInput.readOnly = true;
-            opisInput.readOnly = true;
-        } else {
-            kwotaInput.value = "";
-            kwotaInput.readOnly = false;
-            opisInput.readOnly = false;
-            opisInput.value = <?= $opis ?>;
-        }
-    });
-</script>
 </body>
 </html>
 
