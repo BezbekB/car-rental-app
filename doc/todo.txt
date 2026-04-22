@@ -25,6 +25,6 @@ Statystyki:
 7. Wydane pieniądze - klient wtorek --- done
 8. Dane dla oddziałów - admin środa --- done
 9. Dane dla oddziału danego pracownika - pracownik środa --- done
-10. Ulepszenie strony(o nas, galeria itp.) - środa
-11. Chart.js dla statystyk - czwartek, piątek
-Faza Testów plików po kolei - środa, czwartek, piątek
+10. Ulepszenie strony(o nas, galeria itp.) - czwartek
+
+

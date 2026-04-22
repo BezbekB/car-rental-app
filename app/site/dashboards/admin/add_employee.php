@@ -52,9 +52,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             $stmt->execute([$login, $passwordHash, $roleId]);
 
             $userID = $pdo->lastInsertId();
-            
-            $stmt = $pdo->prepare("INSERT INTO Osoba(Imie, Nazwisko, DataUrodzenia, PESEL, NrTelefonu, Email, Adres, Pensja, UzytkownikID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->execute([$firstName, $lastName, $dateOfBirth, $pesel, $phoneNumber, $email, $address, $salary, $userID]);
+            $hireDate = date('Y-m-d');
+
+            $stmt = $pdo->prepare("INSERT INTO Osoba(Imie, Nazwisko, DataUrodzenia, PESEL, NrTelefonu, Email, Adres, Pensja, UzytkownikID, DataZatrudnienia) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->execute([$firstName, $lastName, $dateOfBirth, $pesel, $phoneNumber, $email, $address, $salary, $userID, $hireDate]);
     
             $pdo->commit();
             $success = "Udało się dodać pracownika!";
