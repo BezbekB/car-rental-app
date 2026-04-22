@@ -36,6 +36,11 @@ requireRole(['pracownik']);
             <h2>Najaktywniejsi Klienci</h2>
             <p>Zobacz 5 najaktywniejszych klientów</p>
         </a>
+        <a href="./employee/my_branch_details.php" class="admin-customer-card">
+            <h2>Zarobek oddział</h2>
+            <p>Zobacz zarobek swojego oddziału</p>
+        </a>
+        
     </div>
 </main>
 <?php require_once('../components/footer.php'); ?>
