@@ -56,6 +56,10 @@ requireRole(['admin']);
             <h2>Całkowity Przychód</h2>
             <p>Zobacz całkowity przychód firmy</p>
         </a>
+        <a href="./admin/branches_details.php" class="admin-customer-card">
+            <h2>Zarobki oddziałów</h2>
+            <p>Zobacz przychody poszczególnych oddziałów</p>
+        </a>
     </div>
 </main>
 <?php require_once('../components/footer.php'); ?>
