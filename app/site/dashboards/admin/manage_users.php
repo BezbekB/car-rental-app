@@ -41,6 +41,7 @@ $roles = $pdo->query("SELECT * FROM Rola")->fetchAll(PDO::FETCH_ASSOC);
                   <th>Nazwisko</th>
                   <th>Email</th>
                   <th>Rola</th>
+                  <th>Zmień Rolę</th>
                   <th>Edytuj</th>
             </thead>
 
@@ -70,6 +71,13 @@ $roles = $pdo->query("SELECT * FROM Rola")->fetchAll(PDO::FETCH_ASSOC);
                               <td>
                                           <button type="submit" class="save-role-btn">Zmień Rolę</button>
                                     </form>
+                              </td>
+                              <td>
+                                    <?php if($record['Rola'] == 'pracownik'): ?>
+                                    <a href="edit_user.php?id=<?= $record['Id'] ?>" class="save-role-btn" style="text-decoration:none; display:inline-block; text-align:center;">
+                                          Edytuj
+                                    </a>
+                                    <?php endif; ?>
                               </td>
                         </tr>
                   <?php endforeach; ?>

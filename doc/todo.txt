@@ -26,4 +26,10 @@ Statystyki:
 8. Dane dla oddziałów - admin środa --- done
 9. Dane dla oddziału danego pracownika - pracownik środa --- done
 
+Dodatkowo:
+1. Edycja samochodu --- done
+2. Edycja pensji pracownika --- done
+3. Dodanie Samochodów
+4. Napis witaj + nazwa użytkownika
+
 

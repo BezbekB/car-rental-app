@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('../../../config/db.php');
 $id = $_GET['id'];
 
@@ -67,6 +66,8 @@ $photos = $photosStmt->fetchAll(PDO::FETCH_ASSOC);
                         <a href="../../account/login.php" class="rent-btn">Wypożycz</a>
                   <?php elseif($_SESSION['rola'] == "klient"): ?>
                         <a href="../customer/rent_car.php?id=<?= $details['SamochodID'] ?>" class="rent-btn">Wypożycz</a>
+                  <?php elseif($_SESSION['rola'] == 'admin' || $_SESSION['rola'] == 'pracownik'): ?>
+                        <a href="../common/edit_car.php?id=<?= $details['SamochodID'] ?>" class="rent-btn">Edytuj</a>
                   <?php endif; ?>
             </div>
 
