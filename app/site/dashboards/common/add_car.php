@@ -118,7 +118,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 <?php require_once('../../components/header.php'); ?>
 <main class="account-main">
       <form action="" method="POST" autocomplete="off" enctype="multipart/form-data">
-            <h1>Rejestracja</h1>
+            <h1>Dodawanie Samochodu</h1>
             <input type="text" name="brand" placeholder="Marka">
             <input type="text" name="model" placeholder="Model">
             <input type="text" name="color" placeholder="Kolor">

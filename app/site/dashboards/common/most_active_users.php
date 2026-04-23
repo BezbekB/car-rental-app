@@ -3,7 +3,7 @@ require_once('../../../config/auth.php');
 requireRole(['admin', 'pracownik']);
 require_once('../../../config/db.php');
 
-$stmt = $pdo->prepare("SELECT Osoba.OsobaID, Osoba.Imie, Osoba.Nazwisko, Osoba.Email, Osoba.Adres, COUNT(Wypozyczenie.WypozyczenieID) AS IloscWypozyczen FROM Osoba Join Wypozyczenie ON Wypozyczenie.KlientOsobaID = Osoba.OsobaID Group By Osoba.OsobaID ORDER BY IloscWypozyczen DESC limit 5");
+$stmt = $pdo->prepare("SELECT Osoba.OsobaID, Osoba.Imie, Osoba.Nazwisko, Osoba.Email, Osoba.Adres, COUNT(Wypozyczenie.WypozyczenieID) AS IloscWypozyczen FROM Osoba Join Wypozyczenie ON Wypozyczenie.KlientOsobaID = Osoba.OsobaID JOIN Uzytkownik ON Uzytkownik.UzytkownikID = Osoba.UzytkownikID WHERE Uzytkownik.RolaID = 1 Group By Osoba.OsobaID ORDER BY IloscWypozyczen DESC limit 5");
 $stmt->execute();
 $clients = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

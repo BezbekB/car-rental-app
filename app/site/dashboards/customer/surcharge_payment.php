@@ -11,13 +11,12 @@ $surcharge = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if($_SERVER['REQUEST_METHOD'] == "POST")
 {
-      if($_SERVER['REQUEST_METHOD'] === 'POST'){
       $stmtPay = $pdo->prepare("UPDATE Doplata SET StatusDoplatyID = 1 WHERE DoplataID = ?");
       $stmtPay->execute([$id]);
 
       header("Location: ./customer_surcharges.php");
       exit;
-}
+
 }
 
 
@@ -45,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                   <p><strong>Opis:</strong> <?= $surcharge['Opis'] ?></p>
                   <p><strong>Kwota:</strong> <?= $surcharge['Kwota'] ?> zł</p>
                   <p><strong>Nr umowy:</strong> <?= $surcharge['NrUmowy'] ?></p>
-                  <p><strong>Status:</strong> <?= $surcharge['StatusDoplatyID'] == 1 ? "Nieopłacona" : "Opłacona" ?></p>
+                  <p><strong>Status:</strong> <?= $surcharge['StatusDoplatyID'] == 1 ? "Opłacona" : "Nieopłacona" ?></p>
             <button type="submit">Opłać dopłatę</button>
       </div>
 

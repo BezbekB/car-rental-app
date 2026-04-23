@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2026 at 05:25 PM
+-- Generation Time: Apr 23, 2026 at 04:51 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -116,7 +116,8 @@ CREATE TABLE `osoba` (
 
 INSERT INTO `osoba` (`OsobaID`, `Imie`, `Nazwisko`, `DataUrodzenia`, `PESEL`, `NrTelefonu`, `Email`, `Adres`, `NrPrawaJazdy`, `DataWaznosciPrawaJazdy`, `DataZatrudnienia`, `Pensja`, `UzytkownikID`) VALUES
 (1, 'Jan', 'Kowalski', '1996-02-07', '96020759695', '660788524', 'jan.kowalski@gmail.com', 'Pszczyna ul. Parkowa 5', 'KRA582913', '2041-04-02', NULL, NULL, 2),
-(2, 'Mariusz', 'Górski', '1991-02-07', '91020746397', '668985768', 'gorski.jan@wp.pl', 'Jasienica ul. Kościelna 7', NULL, NULL, NULL, 7000.00, 3);
+(2, 'Mariusz', 'Górski', '1991-02-07', '91020746397', '668985768', 'gorski.jan@wp.pl', 'Jasienica ul. Kościelna 7', NULL, NULL, NULL, 7000.00, 3),
+(3, 'Bartosz', 'Nowak', '1999-03-05', '34567876543', '798867576', 'bartoszn@wp.pl', 'Skoczów ul. Rynkowa 6', '6978/76/76', '2030-12-31', NULL, NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -375,7 +376,8 @@ CREATE TABLE `uzytkownik` (
 INSERT INTO `uzytkownik` (`UzytkownikID`, `Login`, `Haslo`, `RolaID`) VALUES
 (1, 'admin', '$2y$10$NTAuM.Dzc8Chx9qZOL0Euuzt4UeA/9/moXykAIMo1uTQoU573JXr2', 3),
 (2, 'jkowalski', '$2y$10$riKt07LeHg95EilWFcJGBuO8ysAcDf92Oqq76ClGBTVMu629AWmFW', 1),
-(3, 'pracownik1', '$2y$10$Q8ifN33kyCFk/AMF00LPse/lp2ZoJDX5U6s.D4aCxDdMq8TcFmhm.', 2);
+(3, 'pracownik1', '$2y$10$Q8ifN33kyCFk/AMF00LPse/lp2ZoJDX5U6s.D4aCxDdMq8TcFmhm.', 2),
+(4, 'user1', '$2y$10$uBZWUAcnoBAupF6.Fv7LGu.hQ5E1fY242F9Sq.b7TJqnqPWMzHvJS', 1);
 
 -- --------------------------------------------------------
 
@@ -605,7 +607,7 @@ ALTER TABLE `oddzial`
 -- AUTO_INCREMENT for table `osoba`
 --
 ALTER TABLE `osoba`
-  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `platnosc`
@@ -677,7 +679,7 @@ ALTER TABLE `typpaliwa`
 -- AUTO_INCREMENT for table `uzytkownik`
 --
 ALTER TABLE `uzytkownik`
-  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `wypozyczenie`

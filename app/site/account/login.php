@@ -28,10 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                   $_SESSION['login'] = $user['Login'];
                   $_SESSION['rola'] = $user['RolaID'];
 
-                  echo $_SESSION['user_id'] . '<br>';
-                  echo $_SESSION['login'] . '<br>';
-                  echo $_SESSION['rola'];
-
                   switch($_SESSION['rola'])
                   {
                         case 1:

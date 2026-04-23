@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('../../../config/db.php');
 $id = $_GET['id'];
 
@@ -30,7 +31,7 @@ $photos = $photosStmt->fetchAll(PDO::FETCH_ASSOC);
       <div class="car-details-card">
 
             <div class="car-slider">
-                  <button class="slider-btn prev">&gt;</button>
+                  <button class="slider-btn prev">&lt;</button>
 
                   <div class="slider-window">
                         <div class="slider-track">
@@ -40,7 +41,7 @@ $photos = $photosStmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                   </div>
 
-                  <button class="slider-btn next">&lt;</button>
+                  <button class="slider-btn next">&gt;</button>
             </div>
 
 

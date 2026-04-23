@@ -17,7 +17,7 @@ requireRole(['klient']);
 <body>
       <?php require_once('../../components/header.php'); ?>
       <main class="admin-customer-main">
-      <h1>Panel Admina</h1>
+      <h1>Moje konto</h1>
 
       <div class="admin-customer-grid">
             <a href="../common/change_data.php" class="admin-customer-card">

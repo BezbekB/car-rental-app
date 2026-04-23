@@ -3,7 +3,7 @@ require_once('../../../config/auth.php');
 requireRole(['admin']);
 require_once('../../../config/db.php');
 
-$stmt = $pdo->prepare("select oddzial.nazwa, oddzial.adres, sum(kwota) as suma from oddzial join samochod on samochod.OddzialID = oddzial.OddzialID join wypozyczenie on wypozyczenie.SamochodID = samochod.SamochodID join platnosc on platnosc.WypozyczenieID = wypozyczenie.WypozyczenieID group by oddzial.nazwa");
+$stmt = $pdo->prepare("Select oddzial.nazwa, oddzial.adres, sum(kwota) as suma from oddzial join samochod on samochod.OddzialID = oddzial.OddzialID join wypozyczenie on wypozyczenie.SamochodID = samochod.SamochodID join platnosc on platnosc.WypozyczenieID = wypozyczenie.WypozyczenieID WHERE platnosc.StatusPlatnosciID = 1 group by oddzial.oddzialid");
 $stmt->execute();
 $branches = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>

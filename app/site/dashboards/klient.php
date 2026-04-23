@@ -33,7 +33,7 @@ requireRole(['klient']);
             <p>Przeglądaj zakończone wypożyczenia</p>
         </a>
         <a href="./customer/money_spent.php" class="admin-customer-card">
-            <h2>Wydane Pieniądzę</h2>
+            <h2>Wydane Pieniądze</h2>
             <p>Analizuj swoje wydatki</p>
         </a>
 

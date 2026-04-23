@@ -32,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
             }
             catch(Exception $e)
             {
-                  $errors[] = "Błąd podczas zmiany hasła: " . $e->getMessage();
+                  $errors[] = "Błąd podczas zmiany danych: " . $e->getMessage();
             }
       }
 }
