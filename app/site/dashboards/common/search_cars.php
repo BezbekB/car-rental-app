@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
     if (empty($errors)) {
 
-        $query = "SELECT Samochod.*, TypPaliwa.TypPaliwa, SkrzyniaBiegow.SkrzyniaBiegow,TypNadwozia.TypNadwozia, Oddzial.Nazwa AS Oddzial, (SELECT Sciezka FROM ZdjecieSamochodu WHERE SamochodID = Samochod.SamochodID ORDER BY ZdjecieID DESC LIMIT 1) AS Zdjecie FROM Samochod JOIN TypPaliwa ON TypPaliwa.TypPaliwaID = Samochod.TypPaliwaID JOIN SkrzyniaBiegow ON SkrzyniaBiegow.SkrzyniaID = Samochod.SkrzyniaID JOIN TypNadwozia ON TypNadwozia.TypNadwoziaID = Samochod.TypNadwoziaID JOIN Oddzial ON Oddzial.OddzialID = Samochod.OddzialID WHERE StatusSamochoduID = 1";
+        $query = "SELECT Samochod.*, TypPaliwa.TypPaliwa, SkrzyniaBiegow.SkrzyniaBiegow,TypNadwozia.TypNadwozia, Oddzial.Nazwa AS Oddzial, (SELECT Sciezka FROM ZdjecieSamochodu WHERE SamochodID = Samochod.SamochodID ORDER BY ZdjecieID ASC LIMIT 1) AS Zdjecie FROM Samochod JOIN TypPaliwa ON TypPaliwa.TypPaliwaID = Samochod.TypPaliwaID JOIN SkrzyniaBiegow ON SkrzyniaBiegow.SkrzyniaID = Samochod.SkrzyniaID JOIN TypNadwozia ON TypNadwozia.TypNadwoziaID = Samochod.TypNadwoziaID JOIN Oddzial ON Oddzial.OddzialID = Samochod.OddzialID WHERE StatusSamochoduID = 1";
 
         $params = [];
 

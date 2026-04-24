@@ -17,7 +17,9 @@ requireRole(['admin']);
 <body>
 <?php require_once('../components/header.php'); ?>
 <main class="admin-customer-main">
-    <h1>Panel Admina</h1>
+    <?php if(isset($_SESSION['login'])): ?>
+            <h1 class="slogan-text">Witaj <?= $_SESSION['login'] ?></h1>
+    <?php endif; ?>
 
     <div class="admin-customer-grid">
         <a href="./admin/add_employee.php" class="admin-customer-card">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2026 at 04:51 PM
+-- Generation Time: Apr 24, 2026 at 04:10 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -116,8 +116,10 @@ CREATE TABLE `osoba` (
 
 INSERT INTO `osoba` (`OsobaID`, `Imie`, `Nazwisko`, `DataUrodzenia`, `PESEL`, `NrTelefonu`, `Email`, `Adres`, `NrPrawaJazdy`, `DataWaznosciPrawaJazdy`, `DataZatrudnienia`, `Pensja`, `UzytkownikID`) VALUES
 (1, 'Jan', 'Kowalski', '1996-02-07', '96020759695', '660788524', 'jan.kowalski@gmail.com', 'Pszczyna ul. Parkowa 5', 'KRA582913', '2041-04-02', NULL, NULL, 2),
-(2, 'Mariusz', 'Górski', '1991-02-07', '91020746397', '668985768', 'gorski.jan@wp.pl', 'Jasienica ul. Kościelna 7', NULL, NULL, NULL, 7000.00, 3),
-(3, 'Bartosz', 'Nowak', '1999-03-05', '34567876543', '798867576', 'bartoszn@wp.pl', 'Skoczów ul. Rynkowa 6', '6978/76/76', '2030-12-31', NULL, NULL, 4);
+(2, 'Mariusz', 'Górski', '1991-02-07', '91020746397', '668985768', 'gorski.jan@wp.pl', 'Jasienica ul. Kościelna 7', NULL, NULL, '2026-04-18', 7000.00, 3),
+(3, 'Bartosz', 'Nowak', '1999-03-05', '34567876543', '798867576', 'bartoszn@wp.pl', 'Skoczów ul. Rynkowa 6', '6978/76/76', '2030-12-31', NULL, NULL, 4),
+(4, 'Mikołaj', 'Kaszkiewicz', '1990-06-29', '90062951912', '666978687', 'kaszkiewicz.m@gmail.com', 'Chybie ul. Dworcowa 2', NULL, NULL, '2026-04-24', 6500.00, 5),
+(5, 'Maciej', 'Sikora', '1987-02-12', '87021229513', '675586968', 'sikora_maciek@o2.pl', 'Pruchna ul. Andrzeja Brody 5', '6859/58/5856', '2032-11-25', NULL, NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -192,7 +194,11 @@ CREATE TABLE `samochod` (
 
 INSERT INTO `samochod` (`SamochodID`, `Marka`, `Model`, `Kolor`, `TypPaliwaID`, `SkrzyniaID`, `TypNadwoziaID`, `Moc`, `RokProdukcji`, `CenaZaDzien`, `StatusSamochoduID`, `NrRejestracyjny`, `VIN`, `Przebieg`, `OddzialID`, `Opis`) VALUES
 (2, 'Cupra', 'Formentor 2.0 TSI', 'Czarny', 1, 2, 4, 190, '2023', 250.00, 1, 'SCI 3940J', 'VSSZZZK1ZPR892614', 23560, 2, 'Cupra Formentor 2023 to sportowy crossover klasy premium, który wyróżnia się agresywną stylistyką, świetnymi osiągami i wysokim komfortem jazdy. Pod maską znajduje się dynamiczny silnik 2.0 TSI o mocy 190 KM, współpracujący z szybką skrzynią DSG oraz napędem 4Drive, co zapewnia pewność prowadzenia w każdych warunkach. Auto przyspiesza pewnie, prowadzi się stabilnie i daje kierowcy dużą przyjemność z jazdy.\r\n\r\nWnętrze zostało zaprojektowane z myślą o ergonomii i nowoczesności — sportowe fotele, ambientowe oświetlenie, duży ekran multimedialny oraz wysokiej jakości materiały tworzą wyjątkową atmosferę. Formentor oferuje także praktyczny bagażnik o pojemności 450 litrów, dzięki czemu świetnie sprawdza się zarówno na co dzień, jak i podczas dłuższych wyjazdów.\r\n\r\nTo idealny wybór dla osób, które oczekują połączenia sportowego charakteru, komfortu i nowoczesnych technologii w jednym stylowym samochodzie.'),
-(3, 'BMW', 'X3 2.0', 'Szary', 2, 2, 4, 190, '2023', 290.00, 1, 'SK 5431X', '5UX63DP06P9961396', 42000, 3, 'BMW X3 xDrive20d 2023 to SUV, który łączy sportowy charakter z elegancją klasy premium. Pod maską pracuje nowoczesny silnik 2.0 TwinPower Turbo Diesel o mocy 190 KM i 400 Nm, który zapewnia natychmiastową reakcję na gaz i dynamiczne przyspieszenie w każdej sytuacji. Napęd xDrive dba o perfekcyjną trakcję, a 8‑stopniowy automat ZF zmienia biegi płynnie i błyskawicznie, utrzymując auto w idealnym zakresie mocy.\r\n\r\nWnętrze to połączenie minimalizmu i luksusu — wysokiej jakości materiały, sportowa pozycja za kierownicą i zaawansowane systemy wsparcia kierowcy tworzą atmosferę nowoczesnego komfortu. X3 oferuje przestronny bagażnik, świetne wyciszenie kabiny i stabilność, która daje pewność zarówno w mieście, jak i na autostradzie.\r\n\r\nTo samochód dla tych, którzy chcą czuć moc, precyzję i kontrolę — bez rezygnacji z wygody i elegancji. BMW X3 2023 to idealny wybór na dłuższe trasy, rodzinne wyjazdy i dynamiczną jazdę na co dzień.');
+(3, 'BMW', 'X3 2.0', 'Szary', 2, 2, 4, 190, '2023', 290.00, 1, 'SK 5431X', '5UX63DP06P9961396', 42000, 3, 'BMW X3 xDrive20d 2023 to SUV, który łączy sportowy charakter z elegancją klasy premium. Pod maską pracuje nowoczesny silnik 2.0 TwinPower Turbo Diesel o mocy 190 KM i 400 Nm, który zapewnia natychmiastową reakcję na gaz i dynamiczne przyspieszenie w każdej sytuacji. Napęd xDrive dba o perfekcyjną trakcję, a 8‑stopniowy automat ZF zmienia biegi płynnie i błyskawicznie, utrzymując auto w idealnym zakresie mocy.\r\n\r\nWnętrze to połączenie minimalizmu i luksusu — wysokiej jakości materiały, sportowa pozycja za kierownicą i zaawansowane systemy wsparcia kierowcy tworzą atmosferę nowoczesnego komfortu. X3 oferuje przestronny bagażnik, świetne wyciszenie kabiny i stabilność, która daje pewność zarówno w mieście, jak i na autostradzie.\r\n\r\nTo samochód dla tych, którzy chcą czuć moc, precyzję i kontrolę — bez rezygnacji z wygody i elegancji. BMW X3 2023 to idealny wybór na dłuższe trasy, rodzinne wyjazdy i dynamiczną jazdę na co dzień.'),
+(4, 'Mercedes-Benz', 'E-Class E 350 4MATIC', 'Szary', 1, 2, 1, 255, '2025', 550.00, 1, 'SK 4524K', 'W1KLH6FB3SA129130', 5204, 1, 'Mercedes‑Benz E 350 2025 to nowoczesny sedan klasy premium wyposażony w 2.0‑litrowy silnik turbo wspierany układem mild‑hybrid, zapewniający płynne i dynamiczne przyspieszenie. Auto oferuje wysoki komfort jazdy, zaawansowane systemy bezpieczeństwa oraz nowoczesny system multimedialny MBUX z dużym ekranem. Idealny do długich tras i codziennego użytkowania.'),
+(5, 'BMW', 'Seria 7 740i', 'Czarny Sapphire Metallic', 1, 2, 1, 335, '2020', 500.00, 1, 'SR 6970P', 'WBA7U2C09LBM62024', 76504, 2, 'BMW Serii 7 740i z 2020 roku to luksusowy sedan klasy premium wyposażony w 3‑litrowy silnik R6 turbo o mocy 335 KM oraz 8‑biegową automatyczną skrzynię. Auto oferuje wysoki komfort, przestronne wnętrze, zaawansowane systemy bezpieczeństwa i świetne osiągi, zachowując jednocześnie elegancki charakter typowy dla flagowej limuzyny BMW. Idealne do długich tras i reprezentacyjnych przejazdów.'),
+(6, 'Audi', 'A5 2.0 TFSI', 'Szary Daytona Pearl', 1, 2, 1, 268, '2025', 450.00, 1, 'SBI 7896U', 'WAUFACF5XSA002716', 578, 3, 'Audi A5 2025 to nowy, przestronny liftback klasy premium, łączący elegancję z nowoczesną technologią. Wyposażony w dynamiczny silnik 2.0 TFSI 268 KM oraz napęd quattro, zapewnia świetne prowadzenie i stabilność. Wnętrze oferuje duży ekran Audi Digital Stage, wysoką jakość materiałów i komfortową pozycję za kierownicą. Idealny do codziennej jazdy i dłuższych tras.'),
+(7, 'Volkswagen', 'Arteon 2.0 TSI', 'Opal White Pearl', 1, 2, 1, 300, '2024', 420.00, 1, 'ST 5768I', 'WVWAR7AN2PE673110', 45787, 2, 'Volkswagen Arteon 2024 to elegancki fastback klasy premium z mocnym silnikiem 2.0 TSI 300 KM i napędem 4MOTION. Oferuje wysoki komfort jazdy, przestronne wnętrze, nowoczesne systemy bezpieczeństwa oraz dynamiczne prowadzenie. Idealny dla kierowców szukających połączenia stylu, osiągów i praktyczności.');
 
 -- --------------------------------------------------------
 
@@ -377,7 +383,9 @@ INSERT INTO `uzytkownik` (`UzytkownikID`, `Login`, `Haslo`, `RolaID`) VALUES
 (1, 'admin', '$2y$10$NTAuM.Dzc8Chx9qZOL0Euuzt4UeA/9/moXykAIMo1uTQoU573JXr2', 3),
 (2, 'jkowalski', '$2y$10$riKt07LeHg95EilWFcJGBuO8ysAcDf92Oqq76ClGBTVMu629AWmFW', 1),
 (3, 'pracownik1', '$2y$10$Q8ifN33kyCFk/AMF00LPse/lp2ZoJDX5U6s.D4aCxDdMq8TcFmhm.', 2),
-(4, 'user1', '$2y$10$uBZWUAcnoBAupF6.Fv7LGu.hQ5E1fY242F9Sq.b7TJqnqPWMzHvJS', 1);
+(4, 'user1', '$2y$10$uBZWUAcnoBAupF6.Fv7LGu.hQ5E1fY242F9Sq.b7TJqnqPWMzHvJS', 1),
+(5, 'pracownik2', '$2y$10$tCmas5BwxMhmYimX6qOwY.eZrHPx592Wxx3Bax5jp5RPip41Dmxwm', 2),
+(6, 'user2', '$2y$10$adcyjK5zRcFkC2pxdQKUL.p1x7K6oUWaW5hJk6l5SfyXzn6X/eT6a', 1);
 
 -- --------------------------------------------------------
 
@@ -432,7 +440,23 @@ INSERT INTO `zdjeciesamochodu` (`ZdjecieID`, `SamochodID`, `Sciezka`) VALUES
 (8, 3, '/uploads/cars/69d2a31cbc234_x3_4.jpg'),
 (9, 3, '/uploads/cars/69d2a31cbc598_x3_3.jpg'),
 (10, 3, '/uploads/cars/69d2a31cbd39d_x3_2.jpg'),
-(11, 3, '/uploads/cars/69d2a31cbd81a_x3_1.jpg');
+(11, 3, '/uploads/cars/69d2a31cbd81a_x3_1.jpg'),
+(12, 4, '/uploads/cars/69eb0bd9969b7_mercedes1.jpg'),
+(13, 4, '/uploads/cars/69eb0bd996d7e_mercedes2.jpg'),
+(14, 4, '/uploads/cars/69eb0bd997493_mercedes3.jpg'),
+(15, 4, '/uploads/cars/69eb0bd997963_mercedes4.jpg'),
+(16, 5, '/uploads/cars/69eb0d837ff54_seria7_1.jpg'),
+(17, 5, '/uploads/cars/69eb0d8380948_seria7_2.jpg'),
+(18, 5, '/uploads/cars/69eb0d8380db0_seria7_3.jpg'),
+(19, 5, '/uploads/cars/69eb0d838143f_seria7_4.jpg'),
+(20, 6, '/uploads/cars/69eb0ebc2a3ec_a5_1.jpg'),
+(21, 6, '/uploads/cars/69eb0ebc2a782_a5_2.jpg'),
+(22, 6, '/uploads/cars/69eb0ebc2ab03_a5_3.jpg'),
+(23, 6, '/uploads/cars/69eb0ebc2b356_a5_4.jpg'),
+(24, 7, '/uploads/cars/69eb0fb1978e8_arteon1.jpg'),
+(25, 7, '/uploads/cars/69eb0fb198365_arteon2.jpg'),
+(26, 7, '/uploads/cars/69eb0fb198799_arteon3.jpg'),
+(27, 7, '/uploads/cars/69eb0fb198de6_arteon4.jpg');
 
 --
 -- Indexes for dumped tables
@@ -607,7 +631,7 @@ ALTER TABLE `oddzial`
 -- AUTO_INCREMENT for table `osoba`
 --
 ALTER TABLE `osoba`
-  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `platnosc`
@@ -625,7 +649,7 @@ ALTER TABLE `rola`
 -- AUTO_INCREMENT for table `samochod`
 --
 ALTER TABLE `samochod`
-  MODIFY `SamochodID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `SamochodID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `skrzyniabiegow`
@@ -679,7 +703,7 @@ ALTER TABLE `typpaliwa`
 -- AUTO_INCREMENT for table `uzytkownik`
 --
 ALTER TABLE `uzytkownik`
-  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `wypozyczenie`
@@ -691,7 +715,7 @@ ALTER TABLE `wypozyczenie`
 -- AUTO_INCREMENT for table `zdjeciesamochodu`
 --
 ALTER TABLE `zdjeciesamochodu`
-  MODIFY `ZdjecieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ZdjecieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
