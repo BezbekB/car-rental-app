@@ -7,7 +7,7 @@ WHERE Samochod.SamochodID = ?");
 $stmt->execute([$id]);
 $details = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$photosStmt = $pdo->prepare("SELECT Sciezka FROM ZdjecieSamochodu WHERE SamochodID = ? ORDER BY ZdjecieID DESC");
+$photosStmt = $pdo->prepare("SELECT Sciezka FROM ZdjecieSamochodu WHERE SamochodID = ? ORDER BY ZdjecieID ASC");
 $photosStmt->execute([$id]);
 $photos = $photosStmt->fetchAll(PDO::FETCH_ASSOC);
 

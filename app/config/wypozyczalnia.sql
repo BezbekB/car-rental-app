@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2026 at 04:10 PM
+-- Generation Time: Apr 24, 2026 at 04:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,9 @@ CREATE TABLE `doplata` (
 
 INSERT INTO `doplata` (`DoplataID`, `WypozyczenieID`, `TypDoplatyID`, `Opis`, `DataNaliczenia`, `Kwota`, `StatusDoplatyID`) VALUES
 (1, 1, 1, 'Opóźnienie zwrotu o 4 dni', '2026-04-14', 2000.00, 1),
-(2, 1, 3, 'Porysowany ekran wyświetlacza', '2026-04-21', 120.00, 1);
+(2, 1, 3, 'Porysowany ekran wyświetlacza', '2026-04-21', 120.00, 1),
+(3, 2, 3, 'asd', '2026-04-24', 200.00, 1),
+(4, 3, 4, 'Brak paliwa', '2026-04-24', 250.00, 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +121,8 @@ INSERT INTO `osoba` (`OsobaID`, `Imie`, `Nazwisko`, `DataUrodzenia`, `PESEL`, `N
 (2, 'Mariusz', 'Górski', '1991-02-07', '91020746397', '668985768', 'gorski.jan@wp.pl', 'Jasienica ul. Kościelna 7', NULL, NULL, '2026-04-18', 7000.00, 3),
 (3, 'Bartosz', 'Nowak', '1999-03-05', '34567876543', '798867576', 'bartoszn@wp.pl', 'Skoczów ul. Rynkowa 6', '6978/76/76', '2030-12-31', NULL, NULL, 4),
 (4, 'Mikołaj', 'Kaszkiewicz', '1990-06-29', '90062951912', '666978687', 'kaszkiewicz.m@gmail.com', 'Chybie ul. Dworcowa 2', NULL, NULL, '2026-04-24', 6500.00, 5),
-(5, 'Maciej', 'Sikora', '1987-02-12', '87021229513', '675586968', 'sikora_maciek@o2.pl', 'Pruchna ul. Andrzeja Brody 5', '6859/58/5856', '2032-11-25', NULL, NULL, 6);
+(5, 'Maciej', 'Sikora', '1987-02-12', '87021229513', '675586968', 'sikora_maciek@o2.pl', 'Pruchna ul. Andrzeja Brody 5', '6859/58/5856', '2032-11-25', NULL, NULL, 6),
+(6, 'Kinga', 'Lewandowska', '1992-06-28', '92062842641', '669798987', 'kinga.lewandowska@gmail.com', 'Strumień ul. Szeroka 2', NULL, NULL, '2026-04-24', 7200.00, 7);
 
 -- --------------------------------------------------------
 
@@ -141,7 +144,9 @@ CREATE TABLE `platnosc` (
 --
 
 INSERT INTO `platnosc` (`PlatnoscID`, `WypozyczenieID`, `Kwota`, `DataPlatnosci`, `MetodaPlatnosciID`, `StatusPlatnosciID`) VALUES
-(1, 1, 870.00, '2026-04-14', 2, 1);
+(1, 1, 870.00, '2026-04-14', 2, 1),
+(2, 2, 500.00, '2026-04-24', 5, 1),
+(3, 3, 2700.00, '2026-04-24', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -196,8 +201,8 @@ INSERT INTO `samochod` (`SamochodID`, `Marka`, `Model`, `Kolor`, `TypPaliwaID`, 
 (2, 'Cupra', 'Formentor 2.0 TSI', 'Czarny', 1, 2, 4, 190, '2023', 250.00, 1, 'SCI 3940J', 'VSSZZZK1ZPR892614', 23560, 2, 'Cupra Formentor 2023 to sportowy crossover klasy premium, który wyróżnia się agresywną stylistyką, świetnymi osiągami i wysokim komfortem jazdy. Pod maską znajduje się dynamiczny silnik 2.0 TSI o mocy 190 KM, współpracujący z szybką skrzynią DSG oraz napędem 4Drive, co zapewnia pewność prowadzenia w każdych warunkach. Auto przyspiesza pewnie, prowadzi się stabilnie i daje kierowcy dużą przyjemność z jazdy.\r\n\r\nWnętrze zostało zaprojektowane z myślą o ergonomii i nowoczesności — sportowe fotele, ambientowe oświetlenie, duży ekran multimedialny oraz wysokiej jakości materiały tworzą wyjątkową atmosferę. Formentor oferuje także praktyczny bagażnik o pojemności 450 litrów, dzięki czemu świetnie sprawdza się zarówno na co dzień, jak i podczas dłuższych wyjazdów.\r\n\r\nTo idealny wybór dla osób, które oczekują połączenia sportowego charakteru, komfortu i nowoczesnych technologii w jednym stylowym samochodzie.'),
 (3, 'BMW', 'X3 2.0', 'Szary', 2, 2, 4, 190, '2023', 290.00, 1, 'SK 5431X', '5UX63DP06P9961396', 42000, 3, 'BMW X3 xDrive20d 2023 to SUV, który łączy sportowy charakter z elegancją klasy premium. Pod maską pracuje nowoczesny silnik 2.0 TwinPower Turbo Diesel o mocy 190 KM i 400 Nm, który zapewnia natychmiastową reakcję na gaz i dynamiczne przyspieszenie w każdej sytuacji. Napęd xDrive dba o perfekcyjną trakcję, a 8‑stopniowy automat ZF zmienia biegi płynnie i błyskawicznie, utrzymując auto w idealnym zakresie mocy.\r\n\r\nWnętrze to połączenie minimalizmu i luksusu — wysokiej jakości materiały, sportowa pozycja za kierownicą i zaawansowane systemy wsparcia kierowcy tworzą atmosferę nowoczesnego komfortu. X3 oferuje przestronny bagażnik, świetne wyciszenie kabiny i stabilność, która daje pewność zarówno w mieście, jak i na autostradzie.\r\n\r\nTo samochód dla tych, którzy chcą czuć moc, precyzję i kontrolę — bez rezygnacji z wygody i elegancji. BMW X3 2023 to idealny wybór na dłuższe trasy, rodzinne wyjazdy i dynamiczną jazdę na co dzień.'),
 (4, 'Mercedes-Benz', 'E-Class E 350 4MATIC', 'Szary', 1, 2, 1, 255, '2025', 550.00, 1, 'SK 4524K', 'W1KLH6FB3SA129130', 5204, 1, 'Mercedes‑Benz E 350 2025 to nowoczesny sedan klasy premium wyposażony w 2.0‑litrowy silnik turbo wspierany układem mild‑hybrid, zapewniający płynne i dynamiczne przyspieszenie. Auto oferuje wysoki komfort jazdy, zaawansowane systemy bezpieczeństwa oraz nowoczesny system multimedialny MBUX z dużym ekranem. Idealny do długich tras i codziennego użytkowania.'),
-(5, 'BMW', 'Seria 7 740i', 'Czarny Sapphire Metallic', 1, 2, 1, 335, '2020', 500.00, 1, 'SR 6970P', 'WBA7U2C09LBM62024', 76504, 2, 'BMW Serii 7 740i z 2020 roku to luksusowy sedan klasy premium wyposażony w 3‑litrowy silnik R6 turbo o mocy 335 KM oraz 8‑biegową automatyczną skrzynię. Auto oferuje wysoki komfort, przestronne wnętrze, zaawansowane systemy bezpieczeństwa i świetne osiągi, zachowując jednocześnie elegancki charakter typowy dla flagowej limuzyny BMW. Idealne do długich tras i reprezentacyjnych przejazdów.'),
-(6, 'Audi', 'A5 2.0 TFSI', 'Szary Daytona Pearl', 1, 2, 1, 268, '2025', 450.00, 1, 'SBI 7896U', 'WAUFACF5XSA002716', 578, 3, 'Audi A5 2025 to nowy, przestronny liftback klasy premium, łączący elegancję z nowoczesną technologią. Wyposażony w dynamiczny silnik 2.0 TFSI 268 KM oraz napęd quattro, zapewnia świetne prowadzenie i stabilność. Wnętrze oferuje duży ekran Audi Digital Stage, wysoką jakość materiałów i komfortową pozycję za kierownicą. Idealny do codziennej jazdy i dłuższych tras.'),
+(5, 'BMW', 'Seria 7 740i', 'Czarny Sapphire Metallic', 1, 2, 1, 335, '2020', 500.00, 1, 'SR 6970P', 'WBA7U2C09LBM62024', 92040, 2, 'BMW Serii 7 740i z 2020 roku to luksusowy sedan klasy premium wyposażony w 3‑litrowy silnik R6 turbo o mocy 335 KM oraz 8‑biegową automatyczną skrzynię. Auto oferuje wysoki komfort, przestronne wnętrze, zaawansowane systemy bezpieczeństwa i świetne osiągi, zachowując jednocześnie elegancki charakter typowy dla flagowej limuzyny BMW. Idealne do długich tras i reprezentacyjnych przejazdów.'),
+(6, 'Audi', 'A5 2.0 TFSI', 'Szary Daytona Pearl', 1, 2, 1, 268, '2025', 450.00, 1, 'SBI 7896U', 'WAUFACF5XSA002716', 15405, 3, 'Audi A5 2025 to nowy, przestronny liftback klasy premium, łączący elegancję z nowoczesną technologią. Wyposażony w dynamiczny silnik 2.0 TFSI 268 KM oraz napęd quattro, zapewnia świetne prowadzenie i stabilność. Wnętrze oferuje duży ekran Audi Digital Stage, wysoką jakość materiałów i komfortową pozycję za kierownicą. Idealny do codziennej jazdy i dłuższych tras.'),
 (7, 'Volkswagen', 'Arteon 2.0 TSI', 'Opal White Pearl', 1, 2, 1, 300, '2024', 420.00, 1, 'ST 5768I', 'WVWAR7AN2PE673110', 45787, 2, 'Volkswagen Arteon 2024 to elegancki fastback klasy premium z mocnym silnikiem 2.0 TSI 300 KM i napędem 4MOTION. Oferuje wysoki komfort jazdy, przestronne wnętrze, nowoczesne systemy bezpieczeństwa oraz dynamiczne prowadzenie. Idealny dla kierowców szukających połączenia stylu, osiągów i praktyczności.');
 
 -- --------------------------------------------------------
@@ -385,7 +390,8 @@ INSERT INTO `uzytkownik` (`UzytkownikID`, `Login`, `Haslo`, `RolaID`) VALUES
 (3, 'pracownik1', '$2y$10$Q8ifN33kyCFk/AMF00LPse/lp2ZoJDX5U6s.D4aCxDdMq8TcFmhm.', 2),
 (4, 'user1', '$2y$10$uBZWUAcnoBAupF6.Fv7LGu.hQ5E1fY242F9Sq.b7TJqnqPWMzHvJS', 1),
 (5, 'pracownik2', '$2y$10$tCmas5BwxMhmYimX6qOwY.eZrHPx592Wxx3Bax5jp5RPip41Dmxwm', 2),
-(6, 'user2', '$2y$10$adcyjK5zRcFkC2pxdQKUL.p1x7K6oUWaW5hJk6l5SfyXzn6X/eT6a', 1);
+(6, 'user2', '$2y$10$adcyjK5zRcFkC2pxdQKUL.p1x7K6oUWaW5hJk6l5SfyXzn6X/eT6a', 1),
+(7, 'pracownik3', '$2y$10$wUOkC5vQLWFzS7Qc.iNKC.r08BXdrNKdQ6E0qBjiGoe6Y6F6QQ6Ae', 2);
 
 -- --------------------------------------------------------
 
@@ -411,7 +417,9 @@ CREATE TABLE `wypozyczenie` (
 --
 
 INSERT INTO `wypozyczenie` (`WypozyczenieID`, `SamochodID`, `KlientOsobaID`, `PracownikOsobaID`, `DataWypozyczenia`, `PlanowanaDataZwrotu`, `RzeczywistaDataZwrotu`, `StatusWypozyczeniaID`, `KosztCalkowity`, `NrUmowy`) VALUES
-(1, 3, 1, 2, '2026-04-07', '2026-04-10', '2026-04-14', 2, 870.00, 'AGR-1775543554743-7664');
+(1, 3, 1, 2, '2026-04-07', '2026-04-10', '2026-04-14', 2, 870.00, 'AGR-1775543554743-7664'),
+(2, 5, 5, 2, '2026-04-24', '2026-04-25', '2026-04-24', 2, 500.00, 'AGR-1777039915272-4645'),
+(3, 6, 3, 6, '2026-04-24', '2026-04-30', '2026-04-24', 2, 2700.00, 'AGR-1777040288983-7189');
 
 -- --------------------------------------------------------
 
@@ -613,7 +621,7 @@ ALTER TABLE `zdjeciesamochodu`
 -- AUTO_INCREMENT for table `doplata`
 --
 ALTER TABLE `doplata`
-  MODIFY `DoplataID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `DoplataID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `metodaplatnosci`
@@ -631,13 +639,13 @@ ALTER TABLE `oddzial`
 -- AUTO_INCREMENT for table `osoba`
 --
 ALTER TABLE `osoba`
-  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `OsobaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `platnosc`
 --
 ALTER TABLE `platnosc`
-  MODIFY `PlatnoscID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PlatnoscID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `rola`
@@ -703,13 +711,13 @@ ALTER TABLE `typpaliwa`
 -- AUTO_INCREMENT for table `uzytkownik`
 --
 ALTER TABLE `uzytkownik`
-  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `UzytkownikID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `wypozyczenie`
 --
 ALTER TABLE `wypozyczenie`
-  MODIFY `WypozyczenieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `WypozyczenieID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `zdjeciesamochodu`

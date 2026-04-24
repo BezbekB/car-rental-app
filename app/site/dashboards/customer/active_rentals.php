@@ -9,7 +9,7 @@ $clientRow = $stmtClient->fetch(PDO::FETCH_ASSOC);
 $clientID = $clientRow['OsobaID'];
 
 $stmt = $pdo->prepare("SELECT W.WypozyczenieID, W.DataWypozyczenia, W.PlanowanaDataZwrotu, W.KosztCalkowity, W.NrUmowy, W.StatusWypozyczeniaID, P.StatusPlatnosciID, S.Marka, 
-S.Model,  (SELECT Z.Sciezka From ZdjecieSamochodu Z WHERE Z.SamochodID = S.SamochodID ORDER BY Z.Sciezka DESC LIMIT 1) as Zdjecie, O.Imie as PracownikImie, O.Nazwisko as PracownikNazwisko FROM Wypozyczenie W JOIN Samochod S ON W.SamochodID = S.SamochodID JOIN Platnosc P ON P.WypozyczenieID = W.WypozyczenieID JOIN Osoba O ON O.OsobaID = W.PracownikOsobaID WHERE W.KlientOsobaID = ? AND W.StatusWypozyczeniaID = 1");
+S.Model,  (SELECT Z.Sciezka From ZdjecieSamochodu Z WHERE Z.SamochodID = S.SamochodID ORDER BY Z.Sciezka ASC LIMIT 1) as Zdjecie, O.Imie as PracownikImie, O.Nazwisko as PracownikNazwisko FROM Wypozyczenie W JOIN Samochod S ON W.SamochodID = S.SamochodID JOIN Platnosc P ON P.WypozyczenieID = W.WypozyczenieID JOIN Osoba O ON O.OsobaID = W.PracownikOsobaID WHERE W.KlientOsobaID = ? AND W.StatusWypozyczeniaID = 1");
 $stmt->execute([$clientID]);
 $rentals = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
